@@ -6,12 +6,14 @@ import android.widget.TextView;
 
 public class LibraryActivity extends AppCompatActivity {
 
+    private static final String JOKE = "joke";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_library);
 
-        String jokeString = getIntent().getStringExtra("joke");
+        String jokeString = getIntent().getStringExtra(JOKE);
         TextView textView = findViewById(R.id.textView);
         textView.setText(jokeString);
 
