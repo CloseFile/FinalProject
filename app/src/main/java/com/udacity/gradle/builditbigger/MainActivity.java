@@ -5,14 +5,24 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 
 
 public class MainActivity extends AppCompatActivity {
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        progressBar = findViewById(R.id.progressbar);
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        progressBar.setVisibility(View.INVISIBLE);
     }
 
     @Override
@@ -38,10 +48,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void tellJoke(View view) {
-//        Joker joker = new Joker();
-//        Intent intent = new Intent(this, LibraryActivity.class);
-//        intent.putExtra("joke", joker.getRandomJoke());
-//        startActivity(intent);
+        progressBar.setVisibility(View.VISIBLE);
+
         new EndpointsAsyncTask().execute(getApplicationContext());
 
     }

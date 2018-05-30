@@ -14,7 +14,7 @@ buildscript {
     }
 }
 
-// gradle web report
+// gradle --scan report
 plugins {
     id 'com.gradle.build-scan' version '1.13.4'
 }
@@ -49,11 +49,10 @@ ext {
     espressoVersion = '3.0.2'
 }
 
-// last task
 task optionalTask(dependsOn: [":backend:appengineRun",
                               ":app:connectedAndroidTest",
                               ':backend:appengineStop']) {
-    doLast {
-        println 'optionalTask completed'
-    }
+//    doLast {
+//        println 'optionalTask completed'
+//    }
 }
